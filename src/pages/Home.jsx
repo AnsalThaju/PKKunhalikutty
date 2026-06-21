@@ -10,6 +10,33 @@ export default function Home() {
     { label: "Lives Touched", value: "1M+", icon: <Users className="text-kerala-gold w-8 h-8 mb-4" /> },
   ];
 
+  const newsItems = [
+  {
+    category: "Development",
+    title: "New Smart City Project Initiated",
+    description:
+      "Transforming urban infrastructure with sustainable technologies to bring Kerala into the modern era.",
+    image:
+      "https://www.constructionworld.in/assets/uploads/56a29c15e2ebeaa7966700524d2db782.webp",
+  },
+  {
+    category: "Education",
+    title: "Digital Learning Initiative Expanded",
+    description:
+      "Thousands of students across Kerala gain access to advanced digital learning resources and smart classrooms.",
+    image:
+      "https://img.magnific.com/free-photo/digital-environment-scene_23-2151873124.jpg?semt=ais_hybrid&w=740&q=80",
+  },
+  {
+    category: "Healthcare",
+    title: "Rural Healthcare Enhancement Program",
+    description:
+      "New medical facilities and telemedicine services are improving healthcare access in remote regions.",
+    image:
+      "https://www.nitiforstates.gov.in/public-assets/images/stock_images/GG_Health_HFW_2.png",
+  },
+];
+
   return (
     <div className="w-full">
       {/* Hero Section */}
@@ -18,33 +45,33 @@ export default function Home() {
       {/* Vision Statement Section */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="space-y-6"
           >
             <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 dark:text-white leading-tight">
-              A Vision Rooted in <br/>
+              A Vision Rooted in <br />
               <span className="text-kerala-green">Kerala's Heritage</span>
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-              We believe in a future where technological advancement and cultural heritage walk hand in hand. 
+              We believe in a future where technological advancement and cultural heritage walk hand in hand.
               Our mission is to empower the youth, build sustainable infrastructure, and ensure inclusive growth for every citizen of Kerala.
             </p>
             <Link to="/about" className="inline-flex items-center gap-2 text-kerala-green font-bold hover:gap-4 transition-all">
               Read the Full Vision <ArrowRight size={20} />
             </Link>
           </motion.div>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             className="relative h-[500px] rounded-3xl overflow-hidden glass p-2"
           >
-            <img 
-              src="https://i0.wp.com/www.commonwealthunion.com/wp-content/uploads/2026/05/Image.jpg-2.jpeg?w=1280&ssl=1" 
-              alt="Kerala Landscape" 
+            <img
+              src="https://i0.wp.com/www.commonwealthunion.com/wp-content/uploads/2026/05/Image.jpg-2.jpeg?w=1280&ssl=1"
+              alt="Kerala Landscape"
               className="w-full h-full object-cover rounded-2xl"
             />
           </motion.div>
@@ -60,7 +87,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {stats.map((stat, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -88,10 +115,10 @@ export default function Home() {
             View All News
           </Link>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[1, 2, 3].map((i) => (
-            <motion.div 
-              key={i} 
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+  {newsItems.map((item, i) => (
+            <motion.div
+              key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -99,26 +126,35 @@ export default function Home() {
               className="glass rounded-3xl overflow-hidden group hover:-translate-y-2 transition-transform duration-300 flex flex-col"
             >
               <div className="h-56 bg-slate-200 dark:bg-slate-800 relative overflow-hidden">
-                <img 
-                  src={`https://images.unsplash.com/photo-157${i}696958-c5049b866f6f?auto=format&fit=crop&q=80&w=600`} 
-                  alt="News" 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
+
               <div className="p-8 flex-grow flex flex-col justify-between">
                 <div>
-                  <div className="text-xs font-bold uppercase tracking-wider text-kerala-saffron mb-3">Development</div>
-                  <h3 className="text-2xl font-bold mb-3 leading-tight">New Smart City Project Initiated</h3>
+                  <div className="text-xs font-bold uppercase tracking-wider text-kerala-saffron mb-3">
+                    {item.category}
+                  </div>
+
+                  <h3 className="text-2xl font-bold mb-3 leading-tight">
+                    {item.title}
+                  </h3>
+
                   <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 leading-relaxed">
-                    Transforming urban infrastructure with sustainable technologies to bring Kerala into the modern era.
+                    {item.description}
                   </p>
                 </div>
+
                 <button className="text-kerala-green font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
-                  Read More &rarr;
+                  Read More →
                 </button>
               </div>
             </motion.div>
           ))}
+
         </div>
         <div className="mt-8 text-center md:hidden">
           <Link to="/news" className="inline-flex items-center gap-2 text-kerala-green font-bold">
@@ -140,8 +176,8 @@ export default function Home() {
             <p className="text-xl text-emerald-100 mb-10 leading-relaxed">
               Join thousands of volunteers across Kerala working towards a brighter, more inclusive future. Your contribution matters.
             </p>
-            <Link 
-              to="/volunteer" 
+            <Link
+              to="/volunteer"
               className="inline-block px-10 py-4 bg-white text-kerala-green rounded-full font-bold text-lg hover:bg-emerald-50 transition-colors shadow-xl"
             >
               Become a Volunteer
@@ -161,13 +197,13 @@ export default function Home() {
             Subscribe to our newsletter to receive the latest updates on campaigns, events, and development projects directly to your inbox.
           </p>
           <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-            <input 
-              type="email" 
-              placeholder="Enter your email address" 
+            <input
+              type="email"
+              placeholder="Enter your email address"
               className="flex-grow px-6 py-4 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:outline-none focus:border-kerala-green transition-colors"
             />
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="px-8 py-4 bg-kerala-saffron hover:bg-kerala-saffron/90 text-white rounded-full font-bold transition-colors shadow-lg shadow-kerala-saffron/30 whitespace-nowrap"
             >
               Subscribe Now

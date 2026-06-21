@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { politicianData } from '../data/politicianData';
-import newsImg from '../assets/images/about/pk-kunhalikutty-1699557430.png';
+
+import news1 from '../assets/images/news/news1.png';
+import news2 from '../assets/images/news/news2.png';
+import news3 from '../assets/images/news/news3.jpg';
 
 export default function News() {
   const newsItems = [
@@ -10,21 +13,21 @@ export default function News() {
       category: "Election 2026",
       desc: `Secured a massive victory margin of ${politicianData.election2026.victoryMargin} votes in the 16th Kerala Legislative Assembly elections.`,
       date: "May 15, 2026",
-      image: newsImg
+      image: news1
     },
     {
       title: "New Ministerial Portfolios Announced",
       category: "Government",
       desc: "Appointed as the Minister for Industries, IT, Artificial Intelligence, and Startups in the new cabinet.",
       date: "May 20, 2026",
-      image: newsImg
+      image: news2
     },
     {
       title: "Launch of Smart Kerala Initiative",
       category: "Development",
       desc: "Detailed the roadmap for integrating AI and modern tech into the public infrastructure across the state.",
       date: "June 2, 2026",
-      image: newsImg
+      image: news3
     }
   ];
 
